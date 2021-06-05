@@ -1,0 +1,1 @@
+void synEF(cv::Mat &prev, cv::Mat &res);
