@@ -125,7 +125,6 @@ vector<double> get_regions(Mat *prev) {
 	//Generate Segments
 	extract(&lum, regions, &labels);
 
-	vector<double> a;	//Enhancement Factors
 	vector<double> sums(regions, 0);
 	vector<double> count(regions, 0);
 
@@ -150,7 +149,6 @@ vector<double> get_regions(Mat *prev) {
 	//Calculate gamma correction parameters
 	for (int i = 0; i < regions; i++) {
 		double v = sums[i] / (count[i] + 0.003);
-		a.push_back(0.33 / exp(v));
 		//cout << v / 2.2 << endl;
 		arr.push_back(v / 2.2);
 	}
@@ -234,9 +232,9 @@ void synEF(Mat &prev, Mat &res) {
 	}
 	else if (hdr) {
 		//cout << "hdr" << endl;
-		arr[1] = arr[1]/2;	
-		arr[0] = arr[2]/(arr[0]-arr[2]);	
-		arr[2] = arr[2];	
+		arr[0] = arr[2]/(arr[0]-arr[2]);
+		arr[1] = arr[1]/2;
+		arr[2] = arr[2]/2;
 	}
 	else {
 		//cout << "normal" << endl;
@@ -255,8 +253,7 @@ void synEF(Mat &prev, Mat &res) {
 
 		if((i==0 && dark && !hdr)||(i==1 && !dark && !hdr) || (hdr && dark && i==1) || (hdr && !dark && i==2)){
 			mode = 1;
-		}else if(dark && hdr && i==0){
-			mode = 2;
+		}
 		}else{
 			mode=0;
 		}

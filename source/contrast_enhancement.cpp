@@ -130,8 +130,6 @@ void contrastEnhancement(const cv::Mat& src, cv::Mat& dst, int mode)
 	//cout<<mode<<endl;
 	if(mode==1){
 		global = adaptive.clone();
-	} else if(mode==2){
-		adaptive = global.clone();
 	}
 	
 	global.convertTo(global, CV_32FC1);
