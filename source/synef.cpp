@@ -253,7 +253,6 @@ void synEF(Mat &prev, Mat &res) {
 
 		if((i==0 && dark && !hdr)||(i==1 && !dark && !hdr) || (hdr && dark && i==1) || (hdr && !dark && i==2)){
 			mode = 1;
-		}
 		}else{
 			mode=0;
 		}
