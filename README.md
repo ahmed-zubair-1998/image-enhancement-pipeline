@@ -3,6 +3,7 @@
 
 ## Setup
 
+- Must have `Docker` installed and running
 - Create a folder named `datasets` having sub folders containing the datasets.
 - Create a folder names `results` having sub folder named `datasets`. This folder should include empty sub folders named after datasets used.
 
